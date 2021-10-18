@@ -1,0 +1,27 @@
+{
+    "Centres" : {
+      "CBJ Hospital" : {
+        "Address" : "Near Mutiara Ville",
+        "Capacity" : 40,
+        "PostCode" : "63000"
+      },
+      "MMU" : {
+        "Address" : "Jalan persiaran etc",
+        "Capacity" : 35,
+        "PostCode" : "63000"
+      }
+    },
+    "Users" : {
+      "kkl8CAWcbATmy6MdxvhBp8JLcbq1" : {
+        "Age" : "17",
+        "Covid-19 stauts" : "normal",
+        "Health Risk" : "Low",
+        "Medical Conditions" : "null",
+        "Name" : "Omar Medhat",
+        "Occupation" : "Student",
+        "Phone" : "0142345515",
+        "Postcode" : 63000
+      }
+    }
+  }
+  

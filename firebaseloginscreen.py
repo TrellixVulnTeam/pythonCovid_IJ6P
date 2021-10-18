@@ -5,6 +5,9 @@ from kivy.network.urlrequest import UrlRequest
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.factory import Factory
+import requests
+import json
+from kivyapp import App
 import certifi
 
 # KivyMD imports
@@ -23,11 +26,15 @@ Builder.load_file(folder + "/signupscreen.kv")
 Builder.load_file(folder + "/welcomescreen.kv")
 Builder.load_file(folder + "/loadingpopup.kv")
 Builder.load_file(folder + "/firebaseloginscreen.kv")
+Builder.load_file(folder + "/mainscreen.kv")
+#Builder.load_file(folder + "/main.kv")
 
 # Import the screens used to log the user in
 from welcomescreen import WelcomeScreen
 from signinscreen import SignInScreen
 from signupscreen import SignUpScreen
+from covidstatusscreen import CovidStatusScreen
+from mainscreen import MainScreen
 
 
 
@@ -81,7 +88,7 @@ class FirebaseLoginScreen(Screen, EventDispatcher):
         self.login_success = False
         self.refresh_token = ''
         self.ids.screen_manager.current = 'welcome_screen'
-        # Clear text fields
+        # Clear signup/in text fields
         self.ids.sign_in_screen.ids.email.text = ''
         self.ids.sign_in_screen.ids.password.text = ''
         self.ids.sign_up_screen.ids.email.text = ''
@@ -106,6 +113,25 @@ class FirebaseLoginScreen(Screen, EventDispatcher):
             print("REMEMBER USER IS TRUE")
             if os.path.exists(self.refresh_token_file):
                 self.load_saved_account()
+
+    # def update_covid_status(covidstatus, occupation, self, *args, localId, result):
+    #     print("Buton put Clicked")
+    #     json_data = '''{ "%s" : {
+    #                     "Age" : "17",
+    #                     "Covid-19 stauts" : "%s",
+    #                     "Health Risk" : "Low",
+    #                     "Medical Conditions" : "null",
+    #                     "Name" : "Omar Medhat",
+    #                     "Occupation" : "%s",
+    #                     "Assigned Centre" : "null",
+    #                     "Phone" : "0142345515",
+    #                     "PostCode" : 63000
+    #                     }
+    #                 }''' %(result['localId'], covidstatus, occupation)
+    #     print(json_data)
+    #     res = requests.put(url=self.fireUrl+"/Users"+".json", json=json.loads(json_data))
+    #     print(res.json())
+
 
     def sign_up(self, email, password):
         """If you don't want to use Firebase, just overwrite this method and
@@ -366,3 +392,13 @@ class FirebaseLoginScreen(Screen, EventDispatcher):
 
     def successful_verify_email_sent(self, *args):
         toast("A verification email has been sent. \nPlease check your email.")
+
+    def getInfo(self, *args, localId):
+        self.localId = ''
+        self.idToken = ''
+        self.clear_refresh_token_file()
+        self.ids.screen_manager.current = 'welcome_screen'
+        print("Buton get Clicked")
+        fireUrl = "https://vaccinationapp-psp-default-rtdb.asia-southeast1.firebasedatabase.app/"
+        res = requests.get(url=fireUrl+"Users/"+localId+".json")
+        print(res.json())

@@ -1,0 +1,41 @@
+<CovidStatusScreen>:
+    FloatLayout:
+        MDToolbar:
+            md_bg_color: 0,0,0,0
+            elevation: 0
+            pos_hint: {"top": 1}
+            left_action_items: [['chevron-left', lambda x: root.go_back()]]
+            specific_text_color: 0,0,0,1
+
+        MDTextField:
+            id: covidstatus
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .700}
+            hint_text: "Covid Status (Infected, Quarntined, Normal, Vaccinated)"
+
+        MDTextField:    
+            id: age
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .375}
+            hint_text: "Age"
+
+        MDTextField:    
+            id: medicalcondition
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .475}
+            hint_text: "Medical Conditions (Put N/A if none)"
+
+        MDTextField:
+            id: occupation
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .575}
+            hint_text: "Occupation (Healthcare, Community Service, Social Service, Teaching or Other)"
+
+        MDFillRoundFlatButton:
+            text: "Save"
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .175}
+            on_release:
+                app.update_covid_status(covidstatus.text, occupation.text, age.text, medicalcondition.text)
+                # root.parent.current = "main_screen"
+            

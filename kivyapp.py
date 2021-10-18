@@ -36,7 +36,8 @@ class KivyApp(App):
 
     def create_get(self, *args):
         print("Buton get Clicked")
-        res = requests.get(url=self.firebase_url)
+        fireUrl = "https://vaccinationapp-psp-default-rtdb.asia-southeast1.firebasedatabase.app"
+        res = requests.get(url=fireUrl+"Users"+"")
         print(res.json())
     
     def create_post(self, *args):

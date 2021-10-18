@@ -1,0 +1,26 @@
+<ProfilePageScreen>:
+    FloatLayout:
+        MDToolbar:
+            md_bg_color: 0,0,0,0
+            elevation: 0
+            pos_hint: {"top": 1}
+            left_action_items: [['chevron-left', lambda x: root.go_back()]]
+            specific_text_color: 0,0,0,1
+        MDFillRoundFlatButton:
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .275}
+            text: "Update Covid-19 info"
+            on_release:
+                root.parent.current = "covid_status_screen"
+        MDFillRoundFlatButton:
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .7}
+            text: "Log out"
+            on_release:
+                app.sign_out()
+        MDFillRoundFlatButton:
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .475}
+            text: "Update Covid-19 info"
+            on_release:
+                root.parent.current = "covid_status_screen"
