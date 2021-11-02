@@ -29,6 +29,12 @@ history and priority ranking based on occupation.
 
 
 ### Please Follow instructions to run the Application
+## installation [Mac & Windows] *Rquires Python 3*
+
+```sh
+pip install virtualenv
+```
+
 ## [Windows]
 
 For User App
