@@ -1,0 +1,42 @@
+<AppointmentScreen>:
+    FloatLayout:
+        MDToolbar:
+            md_bg_color: 0,0,0,0
+            elevation: 0
+            pos_hint: {"top": 1}
+            left_action_items: [['chevron-left', lambda x: root.go_back()]]
+            specific_text_color: 0,0,0,1
+
+        MDLabel:
+            id: assigneddate
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": 1}
+            text: "test"
+
+        MDLabel:
+            id: centreadress
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .950}
+            text: "test"
+
+        MDLabel:
+            id: assignedcentre
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .900}
+            text: "test"
+
+        MDFillRoundFlatButton:
+            text: "Accept"
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .350}
+            on_release:
+                app.accept_appt()
+                # root.parent.current = "main_screen"
+
+        MDFillRoundFlatButton:
+            text: "Decline"
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .250}
+            on_release:
+                app.decline_appt()
+                # root.parent.current = "main_screen"

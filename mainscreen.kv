@@ -11,20 +11,26 @@
             id: the_label
         MDFillRoundFlatButton:
             size_hint_x: .9
-            pos_hint: {"center_x": .5, "top": .7}
+            pos_hint: {"center_x": .5, "top": .100}
             text: "Log out"
             on_release:
                 app.sign_out()
         MDFillRoundFlatButton:
             size_hint_x: .9
-            pos_hint: {"center_x": .5, "top": .275}
-            text: "Profile"
+            pos_hint: {"center_x": .5, "top": .500}
+            text: "Update Profile"
             on_release:
                 root.parent.current = 'profile_page_screen'
         MDFillRoundFlatButton:
             size_hint_x: .9
-            pos_hint: {"center_x": .5, "top": .475}
-            text: "Update Covid-19 info"
+            pos_hint: {"center_x": .5, "top": .600}
+            text: "Update Covid-19 Status"
             on_release:
                 root.parent.current = "covid_status_screen"
+        MDFillRoundFlatButton:
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .400}
+            text: "View Appointment"
+            on_release:
+                root.parent.current = "appointment_screen"
             

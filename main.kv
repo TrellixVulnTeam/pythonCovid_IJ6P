@@ -15,7 +15,8 @@ ScreenManager:
             if self.login_state == 'in': app.local_id = self.localId
             if self.login_state == 'in': app.user_idToken = self.idToken
             # if self.login_state == 'in': app.getInfo()
-            # if self.login_state == 'in': app.display_userInfo()
+            if self.login_state == 'in': app.display_covid_status()
+            if self.login_state == 'in': app.get_assigned()
             if self.login_state == 'in': screen_manager.current = "main_screen"
     CovidStatusScreen:
         id: covid_status_screen
@@ -26,3 +27,7 @@ ScreenManager:
     ProfilePageScreen:
         id: profile_page_screen
         name: "profile_page_screen"
+    AppointmentScreen:
+        id: appointment_screen
+        name: "appointment_screen"
+

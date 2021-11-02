@@ -6,21 +6,53 @@
             pos_hint: {"top": 1}
             left_action_items: [['chevron-left', lambda x: root.go_back()]]
             specific_text_color: 0,0,0,1
-        MDFillRoundFlatButton:
+
+        MDTextField:
+            id: name
             size_hint_x: .9
-            pos_hint: {"center_x": .5, "top": .275}
-            text: "Update Covid-19 info"
-            on_release:
-                root.parent.current = "covid_status_screen"
-        MDFillRoundFlatButton:
+            pos_hint: {"center_x": .5, "top": .800}
+            hint_text: "Name"
+
+        MDTextField:    
+            id: age
             size_hint_x: .9
-            pos_hint: {"center_x": .5, "top": .7}
-            text: "Log out"
-            on_release:
-                app.sign_out()
-        MDFillRoundFlatButton:
+            pos_hint: {"center_x": .5, "top": .700}
+            hint_text: "Age"
+
+        MDTextField:
+            id: phonenumber
             size_hint_x: .9
-            pos_hint: {"center_x": .5, "top": .475}
-            text: "Update Covid-19 info"
+            pos_hint: {"center_x": .5, "top": .600}
+            hint_text: "Phone Number eg: 12345678"
+
+        MDTextField:
+            id: postcode
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .50}
+            hint_text: "Post Code"
+
+        MDTextField:
+            id: occupation
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .400}
+            hint_text: "Occupation (Healthcare, Community Service, Social Service, Teaching or Other)"
+       
+        MDTextField:
+            id: covidstatus
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .300}
+            hint_text: "Covid Status (Infected, Quarntined, Normal, Vaccinated)"
+
+        MDTextField:    
+            id: medicalcondition
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .200}
+            hint_text: "Medical Conditions (Put N/A if none)"
+
+        MDFillRoundFlatButton:
+            text: "Save"
+            size_hint_x: .9
+            pos_hint: {"center_x": .5, "top": .100}
             on_release:
-                root.parent.current = "covid_status_screen"
+                app.update_profile(name.text, age.text, phonenumber.text, postcode.text, occupation.text, covidstatus.text, medicalcondition.text)
+                # root.parent.current = "main_screen"
