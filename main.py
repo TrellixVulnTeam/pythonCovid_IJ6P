@@ -76,7 +76,7 @@ class MainApp(MDApp, EventDispatcher):
             risk = "High"
 
         json_data = '''{
-                            "Admin" : "False"
+                            "Admin" : "False",
                             "Name" : "%s",
                             "Age" : "%s",
                             "Phone" : "%s",
